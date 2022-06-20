@@ -1,0 +1,64 @@
+SELECT * FROM users;
+
+CREATE TABLE IF NOT EXISTS public.items
+(
+    kode_produk VARCHAR(20) NOT NULL PRIMARY KEY,
+    kategori_produk  VARCHAR(20) NOT NULL,
+    nama_produk  VARCHAR(20) NOT NULL,
+	stok_produk  INT NOT NULL,
+	harga_produk  INT NOT NULL,
+    "createdAt" DATE,
+    "updatedAt" DATE
+);
+
+CREATE SEQUENCE order_no_seq;
+CREATE TABLE IF NOT EXISTS public.orders
+(
+    no_order INT NOT NULL PRIMARY KEY DEFAULT nextval('order_no_seq'::regclass) ,
+    email VARCHAR(100) NOT NULL,
+    alamat_penerima VARCHAR(100) NOT NULL,
+	total_pembayaran INT NOT NULL,
+    "createdAt" DATE,
+    "updatedAt" DATE
+);
+
+
+SELECT * FROM keranjang;
+
+CREATE SEQUENCE keranjang_no_seq;
+CREATE TABLE IF NOT EXISTS public.keranjang
+(
+    id_keranjang INT NOT NULL PRIMARY KEY DEFAULT nextval('keranjang_no_seq'::regclass) ,
+    kode_produk VARCHAR(20) NOT NULL,
+    no_order INT NOT NULL,
+	quantity INT NOT NULL,
+	harga INT NOT NULL,
+    "createdAt" DATE,
+    "updatedAt" DATE
+);
+
+
+CREATE SEQUENCE pembayaran_no_seq;
+CREATE TABLE IF NOT EXISTS public.pembayaran
+(
+    kode_pembayaran INT NOT NULL PRIMARY KEY DEFAULT nextval('pembayaran_no_seq'::regclass) ,
+    no_order INT NOT NULL,
+	jenis_pembayaran VARCHAR(20) NOT NULL,
+	status_pembayaran VARCHAR(20) NOT NULL,
+	"createdAt" DATE,
+    "updatedAt" DATE
+);
+
+SELECT * FROM pengiriman;
+
+
+CREATE TABLE IF NOT EXISTS public.pengiriman
+(
+    no_resi INT NOT NULL PRIMARY KEY,
+    no_order INT NOT NULL,
+    kurir VARCHAR(50) NOT NULL,
+	status VARCHAR(50) NOT NULL,
+    "createdAt" DATE,
+    "updatedAt" DATE
+);
+    

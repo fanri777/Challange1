@@ -1,0 +1,24 @@
+{ 
+            "email" : "dsdh@dfa.com", 
+            "alamat_penerima" : "Jl.ofhdfladhflahf", 
+            "total_pembayaran" : 500000,
+			"detail_pesanan" : [{
+				"kode_produk" : "D1",
+				"quantity" 	  : 2,
+				"total_harga" : 1000000 
+			},{
+				"kode_produk" : "C1",
+				"quantity" : 3,
+				"total_harga" : 75000
+				
+			},{
+				"kode_produk" : "B4",
+				"quantity" : 1,
+				"total_harga" : 175000
+			}]
+			"ongkir" : 25000,
+			"kurir" : "JNE"
+			
+
+}
+
